@@ -51,8 +51,10 @@ class FilamentEnvEditorPlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+        $this->publishes([
+            __DIR__.'/../config/filament-env-editor.php' => config_path('filament-env-editor.php'),
+        ], 'filament-env-editor-config');
     }
-
     public function authorize(bool|\Closure $callback = true): static
     {
         $this->authorizeUsing = $callback;

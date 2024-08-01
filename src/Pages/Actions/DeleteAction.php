@@ -43,5 +43,8 @@ class DeleteAction extends Action
         $this->modalHeading(fn (): string => __('filament-env-editor::filament-env-editor.actions.delete.confirm.title', ['name' => $this->entry->key]));
         $this->outlined();
         $this->requiresConfirmation();
+
+        $this->hidden(fn () => !config('filament-env-editor.allow_delete', true));
+
     }
 }
